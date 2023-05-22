@@ -48,14 +48,15 @@ line-height: 2rem;
 h3 {
 padding-bottom:.5rem ;
 padding-top: .5rem;
+font-size: 1.5rem;
 }
 
 p{
   color: var(--color-dark);
   font-family: var(--font-main);
-  font-size: 0.8rem;
+  font-size: 1rem;
   
-  letter-spacing: 0.7px;
+  letter-spacing: 1px;
 }
 
 /* UI Elements */
@@ -68,23 +69,26 @@ button {
   text-decoration: none;
   background-color: var(--color-darker);
   color: var(--color-lighter);
+  border-radius: 10px;
 }
 
 .light_button {
   background-color: var(--color-lighter);
   color: var(--color-darker);
+  
 }
 
 input[type=text] {
   box-sizing: border-box;
   width: 250px;
   height: 2rem;
-  padding: 0.5rem;
+margin-right: 1rem;
   text-align: left;
   background-color: var(--color-lighter);
   border-color: var(--color-light);
   color: var(--color-dark);
   font-size: 0.64rem;
+  font-family: var(--font-secondary);
 }
 
 /* Menu */
@@ -114,11 +118,12 @@ header {
 .header_text {
   width: 40vw;
   min-width: 300px;
-  line-height: 1.5rem;
+  line-height: 1.8rem;
 }
 
 .header_text h1 {
   color: var(--color-lighter);
+
 }
 
 .header_text p {
@@ -152,6 +157,7 @@ header {
 }
 .intro_text h2{
   padding-bottom: 2rem;
+line-height: 2.5rem;
 }
 .intro_graphics {
   width: 15vw;
@@ -164,6 +170,7 @@ header {
 #cards {
   min-height: 80vh;
   padding: 5rem 2rem;
+ 
 
 }
 
@@ -233,19 +240,94 @@ footer section div {
   margin: 0px 1rem 1rem 1rem;
 }
 
-#card_container{
+
+.card {
+  background-color: rgba(214, 214, 214, 0.411);
+  min-height: 40vh;
+  padding: 1rem;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px; /* Set a fixed value for the maximum width */
+  width: 100%; /* Ensure the card takes up the entire width of its container */
+}
+
+#card_container {
   display: grid;
   margin-top: 2rem;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 3rem;
   justify-items: center;
 }
-.card{
-background-color: rgba(214, 214, 214, 0.411);
-min-height:40vh ;
-padding: 1rem;
-border-radius: 5%;
-display: flex;
-flex-direction: column;
-gap: .5rem;
+
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+    
+  }
+
+  header {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .header_text {
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .header_graphics {
+    width: 80%;
+    height: auto;
+  }
+
+  #intro {
+    padding: 0px 5rem;
+  }
+
+  .intro_text {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+
+  .intro_graphics {
+    width: 80%;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  #intro {
+    padding: 0 1rem;
+  }
+
+  #card_container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 1rem;
+    justify-items: center;
+  }
+  
+  .header_text,
+  .header_graphics,
+  .intro_text,
+  .intro_graphics,
+  .info_text {
+    width: 80%;
+    min-width: unset;
+  }
+
+  footer section {
+    max-width: 100%;
+  }
+  #contact button{
+    margin-top: 20px;
+  }
+  .header_text {
+    word-break: break-word;
+  }
 }
